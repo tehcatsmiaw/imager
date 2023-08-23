@@ -14,12 +14,15 @@ const Home = () => {
       setloading(true);
 
       try {
-        const response = await fetch("http://localhost:3000/api/post", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          "https://imager-gz3o.onrender.com/api/post",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (response.ok) {
           const result = await response.json();

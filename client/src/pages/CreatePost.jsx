@@ -16,13 +16,16 @@ const CreatePost = () => {
       try {
         setGeneratingImg(true);
 
-        const respose = await fetch("http://localhost:3000/api/dalle", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ prompt: form.prompt }),
-        });
+        const respose = await fetch(
+          "https://imager-gz3o.onrender.com/api/dalle",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ prompt: form.prompt }),
+          }
+        );
 
         const data = await respose.json();
 
@@ -44,13 +47,16 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const respose = await fetch("http://localhost:3000/api/post", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(form),
-        });
+        const respose = await fetch(
+          "https://imager-gz3o.onrender.com/api/post",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(form),
+          }
+        );
 
         await respose.json();
         navigate("/");
